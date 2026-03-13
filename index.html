@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FastVape - Премиальные жидкости для вейпов</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #0f0f1e 0%, #1a1a2e 100%);
+            color: #ffffff;
+            min-height: 100vh;
+        }
+
+        /* Navigation */
+        nav {
+            background: rgba(15, 15, 30, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 5%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(139, 92, 246, 0.2);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, #8b5cf6 0%, #a78bfa 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #a0aec0;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: #8b5cf6;
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 80px;
+            padding: 4rem 5%;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #ffffff 0%, #a78bfa 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #a0aec0;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        /* Sections */
+        section {
+            padding: 4rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-align: center;
+            color: #ffffff;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #a0aec0;
+            margin-bottom: 3rem;
+            font-size: 1.1rem;
+        }
+
+        /* About Section */
+        .about {
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 20px;
+            padding: 3rem;
+            margin: 2rem auto;
+            border: 1px solid rgba(139, 92, 246, 0.1);
+        }
+
+        .about p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #d1d5db;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Products */
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .product-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(139, 92, 246, 0.2);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(139, 92, 246, 0.2);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, #1a1a2e 0%, #2d2d44 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+        }
+
+        .product-info {
+            padding: 1.5rem;
+        }
+
+        .product-info h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: #ffffff;
+        }
+
+        .product-info p {
+            color: #a0aec0;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .product-price {
+            font-size: 1.5rem;
+            color: #8b5cf6;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        /* Buttons */
+        .btn-container {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 2rem 0;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            border: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #8b5cf6 0%, #a78bfa 100%);
+            color: #ffffff;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(139, 92, 246, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #8b5cf6;
+            border: 2px solid #8b5cf6;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(139, 92, 246, 0.1);
+            transform: translateY(-2px);
+        }
+
+        /* FAQ CTA */
+        .faq-cta {
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(167, 139, 250, 0.05) 100%);
+            border: 2px solid rgba(139, 92, 246, 0.3);
+            border-radius: 20px;
+            padding: 3rem;
+            text-align: center;
+            margin: 4rem auto;
+        }
+
+        .faq-cta h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #ffffff;
+        }
+
+        .faq-cta p {
+            color: #a0aec0;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
+        /* Modal Styles */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            border: 2px solid rgba(139, 92, 246, 0.3);
+            border-radius: 20px;
+            padding: 2.5rem;
+            max-width: 500px;
+            width: 100%;
+            position: relative;
+            animation: modalSlide 0.3s ease-out;
+        }
+
+        @keyframes modalSlide {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            color: #a0aec0;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: color 0.3s;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+
+        .modal-close:hover {
+            color: #ffffff;
+            background: rgba(139, 92, 246, 0.1);
+        }
+
+        .modal h2 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, #ffffff 0%, #a78bfa 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .modal-subtitle {
+            color: #a0aec0;
+            margin-bottom: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #d1d5db;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(139, 92, 246, 0.2);
+            border-radius: 10px;
+            color: #ffffff;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+            font-family: inherit;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #8b5cf6;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: #6b7280;
+        }
+
+        .form-group select option {
+            background: #1a1a2e;
+            color: #ffffff;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(135deg, #8b5cf6 0%, #a78bfa 100%);
+            border: none;
+            border-radius: 10px;
+            color: #ffffff;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(139, 92, 246, 0.4);
+        }
+
+        .submit-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .success-message {
+            display: none;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .success-message.active {
+            display: block;
+        }
+
+        .success-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        .success-message h3 {
+            color: #8b5cf6;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .success-message p {
+            color: #a0aec0;
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(15, 15, 30, 0.95);
+            border-top: 1px solid rgba(139, 92, 246, 0.2);
+            padding: 2rem 5%;
+            text-align: center;
+            color: #a0aec0;
+            margin-top: 4rem;
+        }
+
+        footer a {
+            color: #8b5cf6;
+            text-decoration: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .about {
+                padding: 2rem 1rem;
+            }
+
+            .modal {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">FastVape</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="#about">О нас</a></li>
+                <li><a href="#products">Продукты</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>FastVape</h1>
+        <p>Премиальные жидкости для вейпов</p>
+        <div class="btn-container">
+            <button class="btn btn-primary" onclick="openModal()">Заказать</button>
+            <a href="#about" class="btn btn-secondary">Посмотреть</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2 class="section-title">Кто мы</h2>
+        <div class="about">
+            <p>
+                FastVape — это команда энтузиастов вейп-индустрии. 
+                Мы тщательно отбираем лучшие жидкости от проверенных производителей, 
+                чтобы предложить вам только качественную продукцию.
+            </p>
+        </div>
+        <div class="btn-container">
+            <button class="btn btn-primary" onclick="openModal()">Заказать</button>
+            <a href="#products" class="btn btn-secondary">Посмотреть</a>
+        </div>
+    </section>
+
+    <!-- Popular Products -->
+    <section id="products">
+        <h2 class="section-title">Популярные жижи</h2>
+        <p class="section-subtitle">Наши бестселлеры, которые любят клиенты</p>
+        
+        <div class="products">
+            <div class="product-card" onclick="selectProduct('Midnight Berry')">
+                <div class="product-image">🫐</div>
+                <div class="product-info">
+                    <h3>Midnight Berry</h3>
+                    <p>Насыщенный вкус лесных ягод с прохладой</p>
+                    <div class="product-price">1 290 ₽</div>
+                </div>
+            </div>
+            
+            <div class="product-card" onclick="selectProduct('Tropical Storm')">
+                <div class="product-image">🥭</div>
+                <div class="product-info">
+                    <h3>Tropical Storm</h3>
+                    <p>Экзотический микс тропических фруктов</p>
+                    <div class="product-price">1 290 ₽</div>
+                </div>
+            </div>
+            
+            <div class="product-card" onclick="selectProduct('Mint Glacier')">
+                <div class="product-image">🍃</div>
+                <div class="product-info">
+                    <h3>Mint Glacier</h3>
+                    <p>Освежающая мята с ледяным послевкусием</p>
+                    <div class="product-price">1 290 ₽</div>
+                </div>
+            </div>
+            
+            <div class="product-card" onclick="selectProduct('Vanilla Noir')">
+                <div class="product-image">🍦</div>
+                <div class="product-info">
+                    <h3>Vanilla Noir</h3>
+                    <p>Изысканная ваниль с нотками карамели</p>
+                    <div class="product-price">1 290 ₽</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="btn-container">
+            <button class="btn btn-primary" onclick="openModal()">Заказать</button>
+            <a href="#" class="btn btn-secondary">Посмотреть все</a>
+        </div>
+    </section>
+
+    <!-- FAQ CTA -->
+    <section>
+        <div class="faq-cta">
+            <h2>Что-то не понятно?</h2>
+            <p>Жмите на FAQ — там ответы на все вопросы!</p>
+            <a href="faq.html" class="btn btn-primary">Перейти в FAQ</a>
+        </div>
+    </section>
+
+    <!-- Order Modal -->
+    <div class="modal-overlay" id="orderModal" onclick="closeModalOnOverlay(event)">
+        <div class="modal">
+            <button class="modal-close" onclick="closeModal()">×</button>
+            
+            <div id="orderForm">
+                <h2>Оформить заказ</h2>
+                <p class="modal-subtitle">Заполните форму и мы свяжемся с вами</p>
+                
+                <form onsubmit="submitOrder(event)">
+                    <div class="form-group">
+                        <label for="name">Ваше имя *</label>
+                        <input type="text" id="name" name="name" placeholder="Иван Иванов" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contact">Telegram или телефон *</label>
+                        <input type="text" id="contact" name="contact" placeholder="@username или +7 (999) 123-45-67" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="product">Что хотите заказать? *</label>
+                        <select id="product" name="product" required>
+                            <option value="">Выберите товар</option>
+                            <option value="Midnight Berry">Midnight Berry - 1 290 ₽</option>
+                            <option value="Tropical Storm">Tropical Storm - 1 290 ₽</option>
+                            <option value="Mint Glacier">Mint Glacier - 1 290 ₽</option>
+                            <option value="Vanilla Noir">Vanilla Noir - 1 290 ₽</option>
+                            <option value="Несколько товаров">Несколько товаров</option>
+                            <option value="Другое">Другое</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="quantity">Количество</label>
+                        <input type="number" id="quantity" name="quantity" placeholder="1" min="1" value="1">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="comment">Комментарий к заказу</label>
+                        <textarea id="comment" name="comment" placeholder="Дополнительная информация (крепость, объем и т.д.)"></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn" id="submitBtn">
+                        Отправить заказ
+                    </button>
+                </form>
+            </div>
+
+            <div class="success-message" id="successMessage">
+                <div class="success-icon">✅</div>
+                <h3>Заказ отправлен!</h3>
+                <p>Мы получили ваш заказ и свяжемся с вами в ближайшее время для подтверждения.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 FastVape. Все права защищены.</p>
+        <p>Есть вопросы? <a href="faq.html">FAQ</a> или пишите нам</p>
+    </footer>
+
+    <script>
+        // Telegram Bot Token
+        const TELEGRAM_BOT_TOKEN = '8205601722:AAHrPL7aUTX2CMaz3qUwpRsu9YjGQp65dy0';
+        const TELEGRAM_CHAT_ID = '@FastVape_m'; // Или твой числовой ID
+
+        // Открыть модальное окно
+        function openModal() {
+            document.getElementById('orderModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Закрыть модальное окно
+        function closeModal() {
+            document.getElementById('orderModal').classList.remove('active');
+            document.body.style.overflow = 'auto';
+            setTimeout(() => {
+                document.getElementById('orderForm').style.display = 'block';
+                document.getElementById('successMessage').classList.remove('active');
+                document.querySelector('form').reset();
+            }, 300);
+        }
+
+        // Закрытие при клике на overlay
+        function closeModalOnOverlay(event) {
+            if (event.target === document.getElementById('orderModal')) {
+                closeModal();
+            }
+        }
+
+        // Выбор товара из каталога
+        function selectProduct(productName) {
+            openModal();
+            setTimeout(() => {
+                document.getElementById('product').value = productName;
+            }, 100);
+        }
+
+        // Отправка заказа в Telegram
+        async function submitOrder(event) {
+            event.preventDefault();
+            
+            const submitBtn = document.getElementById('submitBtn');
+            const originalText = submitBtn.textContent;
+            
+            const formData = {
+                name: document.getElementById('name').value,
+                contact: document.getElementById('contact').value,
+                product: document.getElementById('product').value,
+                quantity: document.getElementById('quantity').value,
+                comment: document.getElementById('comment').value
+            };
+
+            const message = `
+🛒 <b>НОВЫЙ ЗАКАЗ</b>
+
+👤 <b>Имя:</b> ${formData.name}
+📱 <b>Контакты:</b> ${formData.contact}
+🧪 <b>Товар:</b> ${formData.product}
+🔢 <b>Количество:</b> ${formData.quantity}
+📝 <b>Комментарий:</b> ${formData.comment || 'Нет'}
+
+⏰ <b>Время:</b> ${new Date().toLocaleString('ru-RU')}
+            `.trim();
+
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Отправка...';
+
+            try {
+                const response = await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        chat_id: TELEGRAM_CHAT_ID,
+                        text: message,
+                        parse_mode: 'HTML'
+                    })
+                });
+
+                if (response.ok) {
+                    document.getElementById('orderForm').style.display = 'none';
+                    document.getElementById('successMessage').classList.add('active');
+                    setTimeout(() => {
+                        closeModal();
+                    }, 3000);
+                } else {
+                    throw new Error('Ошибка отправки');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Произошла ошибка при отправке заказа. Пожалуйста, свяжитесь с нами напрямую в Telegram.');
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = originalText;
+            }
+        }
+
+        // Закрытие по Escape
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+</html>
